@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ploting data</title>
+</head>
+
+<body>
+    <h1>Plot of a fridge's power consumption</h1>
+    <div id='chart' class='chart'”></div>
+</body>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+<script type='text/javascript'>
+    var graphs = {{graphJSON | safe}};
+    Plotly.plot('chart',graphs,{});
+</script>
+
+</html>
