@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Daily nano PROD spam test</title>
+</head>
+
+<body>
+    <h1>PROD tps (2500 blocks)</h1>
+    <div id='prod_send' class='chart'></div>
+    <div id='prod_receive' class='chart'></div>
+    <div id='prod_change' class='chart'></div>
+</body>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+<script type='text/javascript'>
+    var graphs = {{graphJSON | safe}};
+    Plotly.plot('prod_send',graphs[0],{});
+    Plotly.plot('prod_receive',graphs[1],{});
+    Plotly.plot('prod_change',graphs[2],{});  
+</script>
+
+</html>

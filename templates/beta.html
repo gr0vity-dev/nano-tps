@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Daily nano BETA spam test</title>
+</head>
+
+<body>
+    <h1>BETA tps (2500 blocks)</h1>
+    <div id='beta_send' class='chart'></div>
+    <div id='beta_receive' class='chart'></div>
+    <div id='beta_change' class='chart'></div>
+</body>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+<script type='text/javascript'>    
+    var graphs = {{graphJSON | safe}};
+    Plotly.plot('beta_send',graphs[0],{});
+    Plotly.plot('beta_receive',graphs[1],{});
+    Plotly.plot('beta_change',graphs[2],{});  
+</script>
+
+</html>
