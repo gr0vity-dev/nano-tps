@@ -1,7 +1,6 @@
 Flask 
-itsdangerous 
-Jinja2
-matplotlib
 pandas
 plotly
-Werkzeug
+Flask-Limiter
+hypercorn
+redis
