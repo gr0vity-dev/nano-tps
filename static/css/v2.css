@@ -4,6 +4,51 @@ body {
     font-family: Arial, sans-serif;
 }
 
+#last-data-points {
+    margin: 0 auto;
+    width: 80%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+#last-data-points th, #last-data-points td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#last-data-points th {
+    background-color: #007bff;
+    color: white;
+}
+
+#last-data-points tr:nth-child(even) {
+    background-color: #2c2c2c;
+}
+
+
+.param-table {
+    display: flex;
+    flex-direction: column;
+}
+
+.param-table div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.param-table .tab-selector {
+    display: flex;
+    gap: 10px;
+}
+
+.param-table label {
+    width: 120px;  /* adjust this value as needed */
+}
+
+
 .tab-selector {
     display: inline-flex; /* Changed this from 'flex' */
     justify-content: space-between;

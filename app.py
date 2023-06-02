@@ -6,19 +6,23 @@ import pandas as pd
 
 app = Flask(__name__)
 api = Blueprint('api', __name__)
-limiter = Limiter(key_func=get_remote_address,
-                  default_limits=["2000 per day", "500 per hour"],
-                  storage_uri="redis://redis")
-limiter.init_app(app)
+#limiter = Limiter(key_func=get_remote_address,
+#                  default_limits=["2000 per day", "500 per hour"],
+#                 storage_uri="redis://redis")
+#limiter.init_app(app)
 
 DATA_FILES = ['send', 'receive', 'change']
 
+
 @app.route('/')
-def home():
-    return render_template('v2.html')
+@app.route('/<env>')
+def home(env=None):
+    if env is None or env not in ['prod', 'beta']:
+        env = 'prod'
+    return render_template('v2.html', env=env)
+
 
 @api.route('/data/<env>')
-@limiter.limit("50/minute")
 def get_data(env):
     if env not in ['prod', 'beta']:
         env = 'beta'
@@ -33,6 +37,7 @@ def get_data(env):
                 df = df.drop(column, axis=1)
         data[file] = df.to_dict('records')
     return jsonify(data)
+
 
 app.register_blueprint(api, url_prefix='/api')
 
